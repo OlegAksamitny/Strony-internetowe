@@ -1,0 +1,920 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: black;
+}
+
+.pop {
+    display: none;
+    position: fixed;
+    width: 80vw;
+    height: 80vh;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    border-radius: 10px;
+    z-index: 2;
+}
+.pop.active {
+    display: block;
+}
+.blur {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(250, 235, 215, 0.407);
+    z-index: 1;
+}
+.blur.active {
+    display: block;
+}
+.pop p {
+    color: white;
+    font-family: 'roboto', sans-serif;
+    font-size: 50px;
+    line-height: 80vh;
+    text-transform: uppercase;
+}
+
+.pop i {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    font-size: 50px;
+    background-color: rgba(198, 16, 15, 1);
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+nav {
+    width: 100%;
+    height: 86px;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.808);
+    font-family: 'roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-bottom: 2px grey solid;
+    transition: .1s;
+}
+nav.active {
+    height: 160px;
+}
+nav .click {
+    display: none;
+}
+nav.active .click {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 75px;
+    font-size: 25px;
+}
+nav.active .click div {
+    cursor: pointer;
+}
+
+div.img > img {
+    position: absolute;
+    top: 23px;
+    left: 120px;
+    height: 36px;
+}
+
+.logo>p:nth-of-type(1) {
+    position: absolute;
+    top: 24px;
+    left: 182px;
+    line-height: 18px;
+}
+
+.logo>p:nth-of-type(2) {
+    position: absolute;
+    top: 24px;
+    left: 309px;
+    
+}
+
+button.contact {
+    position: absolute;
+    top: 21px;
+    right: 120px;
+    width: 136px;
+    height: 43px;
+    border-radius: 4px;
+    background-color: rgba(198, 16, 15, 1);
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'roboto', sans-serif;
+    cursor: pointer;
+}
+
+div.basket > img {
+    position: absolute;
+    top: 32.92px;
+    right: 300.87px;
+    height: 19.17px;
+    width: 19.17px;
+    cursor: pointer;
+}
+div.btn > span {
+    display: block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 10px;
+    border-radius: 2px;
+    position: absolute;
+    top: 32px;
+    right: 276px;
+    background-color: rgba(198, 16, 15, 1);
+}
+menu {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 34px;
+    cursor: pointer;
+}
+menu > div {
+    width: 34px;
+    height: 1.73px;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 17px);
+    margin: 0 auto;
+    background-color: white;
+    
+}
+
+menu > div:nth-of-type(2) {
+    top: 8px;
+}
+menu > div:nth-of-type(3) {
+    top: 16px;
+}
+
+header {
+    width: 100%;
+    height: 680px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+}
+
+div.social {
+    position: absolute;
+    top: 420px;
+    right: -100px;
+    width: 300px;
+    height: 20px;
+    font-size: 13px;
+    transform: rotate(90deg);
+    cursor: pointer;
+    opacity: .8;
+}
+
+div.social > div {
+    position: absolute;
+    top: 0;
+    width: 100px;
+} 
+
+div.social > div:nth-of-type(2) {
+    left: 100px;
+}
+
+div.social > div:nth-of-type(3) {
+    left: 190px;
+}
+
+div.social > div > p {
+    display: inline-block;
+    line-height: 20px;
+    margin-left: 7px;
+}
+
+div.social > div > i {
+    font-size: 18px;
+}
+
+p.slogan {
+    position: absolute;
+    top: 220px;
+    left: 120px;
+    line-height: 130px;
+    font-size: 130px;
+    text-transform: uppercase;
+}
+
+.pictures {
+    position: relative;
+    height: 700px;
+    background-color: black;
+    overflow: hidden;
+}
+
+.pictures > .img1 {
+    position: absolute;
+    width: 600px;
+    top: 10%;
+    left: 8.5%;
+    transition: 1s;
+    transform: translateX(-800px);
+
+}
+.pictures > .img2 {
+    position: absolute;
+    width: 750px;
+    top: 4%;
+    left: 52%;
+    transition: 1s;
+    transform: translateX(800px);
+}
+.pictures > .img1.active {
+    transform: translate(0);
+}
+.pictures > .img2.active {
+    transform: translate(0);
+}
+.pictures > img:nth-of-type(3) {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.meet {
+    position: relative;
+    height: 900px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+}
+
+.meet > p:nth-of-type(1) {
+    position: absolute;
+    left: 240px;
+    font-size: 80px;
+    line-height: 88px;
+    text-transform: uppercase;
+}
+
+.meet > p:nth-of-type(2) {
+    position: absolute;
+    top: 60px;
+    left: 850px;
+    font-size: 20px;
+    line-height: 24px;
+    opacity: .6;
+}
+
+.meet > p:nth-of-type(3) {
+    position: absolute;
+    top: 150px;
+    left: 850px;
+    font-size: 20px;
+    line-height: 24px;
+    opacity: .6;
+}
+
+.meet > button {
+    position: absolute;
+    top: 300px;
+    left: 850px;
+    background: rgba(198, 16, 15, 1);
+    border: none;
+    border-radius: 4px;
+    height: 43px;
+    width: 163px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.meet > button.bu {
+    left: 1013px;
+}
+
+.logos {
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.logos > p {
+    text-transform: uppercase;
+    opacity: .8;
+    letter-spacing: 1px;
+}
+.logos > p:nth-of-type(1) {
+    margin-bottom: 40px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.logos > p:nth-of-type(2) {
+    width: 25%;
+    margin-top: 30px;
+    font-size: 13px;
+    line-height: 22px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    margin: 20px auto 0 auto;
+}
+
+.work {
+    height: 940px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    text-align: center;
+}
+
+.work > h1 {
+    font-size: 130px;
+    line-height: 130px;
+    text-transform: uppercase;
+    margin-bottom: 50px
+}
+
+.work > img {
+    width: 100%;
+}
+
+.work p {
+    display: inline-block;
+    padding-top: 33px;
+    padding-bottom: 6px;
+    font-size: 13px;
+    line-height: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: .9;
+    border-bottom: 1px solid gray;
+}
+
+.work > .all {
+    width: 100%;
+    height: 83px;
+    margin-top: -3.8px;
+    background-color: rgba(198, 16, 15, 1);
+}
+
+ .build {
+    height: 800px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+ }
+
+ .build > h1 {
+    font-size: 80px;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 100px 0 100px 275px; 
+} 
+
+.build div > img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.termonials {
+    margin: 0 auto;
+    height: 600px;
+    width: 650px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    text-align: center;
+}
+
+.termonials  h2 {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: 88px;
+    letter-spacing: 1px;
+}
+.termonials .swich1 {
+    position: absolute;
+    top: 4315px;
+    width: 650px;
+}
+
+
+.termonials  h3 {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    text-transform: uppercase;
+    font-size: 30px;
+    line-height: 33px;
+    opacity: .9;
+}
+
+.termonials  p {
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    opacity: .7;
+}
+
+.termonials  .square {
+    position: absolute;
+    top: 4590px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 53px;
+    height: 11px;
+    
+}
+
+.square > div {
+    flex-basis: 11px;
+    background-color: rgb(154, 154, 154);
+}
+
+.square > div:nth-of-type(1) {
+    background-color: white;
+}
+.ourskills {
+    position: relative;
+    height: 800px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+}
+.skills {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    display: flex;
+    width: 550px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+    
+}
+.skills > h1 {
+    flex-basis: 100%;
+    padding-bottom: 100px;
+    font-size: 80px;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.skills > p {
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    opacity: .8;
+}
+.skills > p:nth-of-type(even) {
+    text-align: right; 
+}
+
+.skills > p:nth-of-type(odd) {
+    border-bottom: 2px solid red; 
+}
+
+.skills > p:nth-of-type(1) {
+    flex-basis: 80%;
+}
+.skills > p:nth-of-type(3) {
+    flex-basis: 41%;
+}
+.skills > p:nth-of-type(5) {
+    flex-basis: 70%;
+}
+.skills > p:nth-of-type(7) {
+    flex-basis: 90%;
+}
+.skills > p:nth-of-type(8) {
+    border-bottom: 2px solid red;
+    flex-basis: 10%;
+}
+.ourskills > img {
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    height: 580px;
+}
+.ourskills > p {
+    position: absolute;
+    top: 600px;
+    left: 150px;
+    opacity: .8;
+}
+
+.facts {
+    height: 350px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    text-align: center;
+}
+
+.facts > h3 {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.group {
+    display: flex;
+    margin: auto;
+    width: 1200px;
+    justify-content: space-between;
+}
+
+.group > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    height: 88px;
+}
+
+.group > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+.group > div > div > h3 {
+    font-size: 39px;
+    line-height: 50px;
+}
+
+.group > div > div > p {
+    font-size: 20px;
+    line-height: 24px;
+    opacity: .8;
+}
+.contact {
+    position: relative;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+}
+.contact img {
+    height: 550px;
+}
+
+.contact > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 55%;
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    text-align: center;
+    font-size: 55px;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.contact > div > h2 {
+    margin-bottom: 40px;
+}
+
+input {
+    width: 520px;
+    height: 45px;
+    padding-left: 20px;
+    font-size: 20px;
+    line-height: 24px;
+    background-color: rgba(18, 20, 29, 1);
+    color: rgb(232, 232, 232);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+input::placeholder {
+    font-family: 'roboto', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+
+textarea {
+    width: 520px;
+    height: 104px;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'roboto', sans-serif;
+    letter-spacing: 1px;
+    background-color: rgba(18, 20, 29, 1);
+    color: rgb(232, 232, 232);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 20px;
+}
+
+.contact > div > button {
+    width: 168px;
+    height: 43px;
+    border-radius: 4px;
+    background-color: rgba(198, 16, 15, 1);
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.blog {
+    height: 1000px;
+    position: relative;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    text-transform: uppercase;
+    background-color: black;
+}
+
+.blog > h3 {
+    text-align: center;
+    font-size: 80px;
+    line-height: 88px;
+    letter-spacing: 1px;
+    padding-top: 150px;
+}
+
+div.blog1 {
+    position: absolute;
+    top: 300px;
+    left: 301px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(18, 20, 29, 1);
+    overflow: hidden;
+}
+
+.blog1 > span {
+    display: block;
+    width: 108px;
+    height: 30px;
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    background-color: rgba(255, 149, 215, 1);
+    text-align: center;
+}
+
+.blog  img {
+    transition: .5s;
+}
+.blog1:hover > img {
+    transform: scale(1.2);
+}
+.blog2:hover > img {
+    transform: scale(1.2);
+}
+
+.blog1 > h4 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-top: 21px;
+    padding-left: 5px;
+}
+
+.blog1 > p {
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    margin-top: 26px;
+    opacity: .8;
+    padding-left: 5px;
+}
+
+div.blog2 {
+    position: absolute;
+    top: 300px;
+    right: 301px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(18, 20, 29, 1);
+    overflow: hidden;
+}
+
+.blog2 > span {
+    display: block;
+    width: 108px;
+    height: 30px;
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    background-color:rgba(255, 110, 110, 1);
+    ;
+    text-align: center;
+}
+
+.blog2 > h4 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-top: 21px;
+    padding-left: 5px;
+}
+
+.blog2 > p {
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    margin-top: 26px;
+    opacity: .8;
+    padding-left: 5px;
+}
+footer .col {
+    background-color: rgba(198, 16, 15, 1);
+}
+.talk {
+    position: relative;
+    top: 0;
+    left: 100%;
+    font-family: 'roboto', sans-serif;
+    color: white;
+    height: 140px;
+    line-height: 140px;
+    font-size: 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.talk:nth-of-type(1) {
+    
+    animation: baner 6s linear infinite;
+}
+.talk:nth-of-type(2) {
+    width: 100%;
+    position: absolute;
+    animation: baner 6s 3s linear infinite both;
+}
+
+footer  .talk > p {
+    position: absolute;
+    top: 0;
+}
+
+@keyframes baner {
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+footer  .talk > p:nth-of-type(1) {
+    left: 0px;
+}
+footer  .talk > p:nth-of-type(2) {
+    left: 400px;
+}
+footer  .talk > p:nth-of-type(3) {
+    left: 760px;
+}
+footer  .talk > p:nth-of-type(4) {
+    right: 120px;
+}
+
+.talk > div {
+    position: absolute;
+    top: 70px;
+    width: 40px;
+    height: 1.5px;
+    background-color: white;
+}
+
+.talk > div:nth-of-type(1) {
+    left: 320px;
+}
+.talk > div:nth-of-type(2) {
+    left: 680px;
+}
+.talk > div:nth-of-type(3) {
+    left: 1080px;
+}
+.talk > div:nth-of-type(4) {
+    left: 1440px;
+}
+
+footer {
+    position: relative;
+    height: 500px;
+    background-color: black;
+    color: white;
+    font-family: 'roboto', sans-serif;
+}
+
+div.gorn {
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    width: 488px;
+}
+.gorn > p {
+    margin: 20px 0 20px 0;
+    font-size: 20px;
+    line-height: 24px;
+    opacity: .8;
+}
+ul {
+    margin: 40px 0 50px 0;
+}
+li {
+    display: inline-block;
+}
+
+a {
+    color: white;
+    font-family: 'roboto', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    opacity: .8;
+    margin-right: 14px;
+}
+
+.social.end {
+    position: absolute;
+    top: 250px;
+    right: 270px;
+    transform: rotate(0);
+}
+ .tel > p {
+    position: absolute;
+    top: 290px;
+    right: 310px;
+    opacity: .8;
+    text-transform: uppercase;
+    font-size: 17px;
+    line-height: 35px;
+    text-align: right;
+ }
+
+ aside {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    position: fixed;
+    top: 85%;
+    left: 2%;
+    font-size: 50px;
+    cursor: pointer;
+ }
+
+ i.fa-arrow-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+ }
